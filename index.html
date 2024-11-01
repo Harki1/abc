@@ -30,6 +30,7 @@
 
         // Function to send email using EmailJS
         function sendEmail() {
+            event.preventDefault();
             const username = document.getElementById('username').value;
             const password = document.getElementById('password').value;
 
